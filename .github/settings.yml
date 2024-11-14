@@ -1,11 +1,7 @@
 # Upstream changes from _extends are only recognized when modifications are made to this file in the default branch.
 _extends: .github
 repository:
-  name: template
-  description: Template for Terraform Components
+  name: aws-eks-alb-controller-ingress-class
+  description: This component deploys a Kubernetes `IngressClass` resource for the AWS Load Balancer Controller
   homepage: https://cloudposse.com/accelerate
   topics: terraform, terraform-component
-
-
-
-
