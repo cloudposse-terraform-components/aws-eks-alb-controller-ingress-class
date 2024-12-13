@@ -6,7 +6,7 @@ tags:
   - provider/helm
 ---
 
-# Component: `eks`
+# Component: `eks-alb-controller-ingress-class`
 
 This component deploys a Kubernetes `IngressClass` resource for the AWS Load Balancer Controller. This is not often
 needed, as the default IngressClass deployed by the `eks/alb-controller` component is sufficient for most use cases, and
