@@ -5,5 +5,3 @@ repository:
   description: This component deploys a Kubernetes `IngressClass` resource for the AWS Load Balancer Controller
   homepage: https://cloudposse.com/accelerate
   topics: terraform, terraform-component
-
-
