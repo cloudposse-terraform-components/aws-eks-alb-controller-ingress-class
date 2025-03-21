@@ -29,6 +29,18 @@ spec:
         - "**/modules/**"
       excluded_paths: []
 
+    - component: "eks/alb-controller"
+      source: github.com/cloudposse-terraform-components/aws-eks-alb-controller.git//src?ref={{.Version}}
+      version: v1.535.1
+      targets:
+        - "components/terraform/eks/alb-controller"
+      included_paths:
+        - "**/*.tf"
+        - "**/*.md"
+        - "**/*.tftmpl"
+        - "**/modules/**"
+      excluded_paths: []
+
     - component: "vpc"
       source: github.com/cloudposse-terraform-components/aws-vpc.git//src?ref={{.Version}}
       version: v1.536.0
