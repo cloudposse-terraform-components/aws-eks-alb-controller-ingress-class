@@ -1,0 +1,12 @@
+components:
+  terraform:
+    eks/alb-controller-ingress-class/basic:
+      metadata:
+        component: eks/alb-controller-ingress-class
+      vars:
+        enabled: true
+        kube_exec_auth_role_arn_enabled: false
+        class_name: special
+        group: special
+        ip_address_type: ipv4
+        scheme: internet-facing
