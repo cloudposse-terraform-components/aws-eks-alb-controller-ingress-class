@@ -1,4 +1,6 @@
 resource "kubernetes_ingress_class_v1" "default" {
+  count = module.this.enabled ? 1 : 0
+
   metadata {
     name = var.class_name
     annotations = {
@@ -19,6 +21,7 @@ resource "kubernetes_ingress_class_v1" "default" {
 }
 
 resource "kubernetes_manifest" "alb_controller_class_params" {
+  count = module.this.enabled ? 1 : 0
   manifest = {
     apiVersion = "elbv2.k8s.aws/v1beta1"
     kind       = "IngressClassParams"
