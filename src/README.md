@@ -13,7 +13,6 @@ needed, as the default IngressClass deployed by the `eks/alb-controller` compone
 when it is not, a service can deploy its own IngressClass. This is for the rare case where you want to deploy an
 additional IngressClass deploying an additional ALB that you nevertheless want to be shared by some services, with none
 of them explicitly owning it.
-
 ## Usage
 
 **Stack Level**: Regional
@@ -30,7 +29,10 @@ components:
 ```
 
 <!-- prettier-ignore-start -->
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- prettier-ignore-end -->
+
+
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -110,12 +112,19 @@ components:
 ## Outputs
 
 No outputs.
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-<!-- prettier-ignore-end -->
+<!-- markdownlint-restore -->
+
+
 
 ## References
 
+
 - [alb-controller](https://artifacthub.io/packages/helm/aws/aws-load-balancer-controller) - Helm Chart
+
 - [alb-controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller) - AWS Load Balancer Controller
 
+
+
+
 [<img src="https://cloudposse.com/logo-300x69.svg" height="32" align="right"/>](https://cpco.io/homepage?utm_source=github&utm_medium=readme&utm_campaign=cloudposse-terraform-components/aws-eks-alb-controller-ingress-class&utm_content=)
+
