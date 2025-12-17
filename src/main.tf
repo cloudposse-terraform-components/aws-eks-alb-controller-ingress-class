@@ -3,9 +3,9 @@ resource "kubernetes_ingress_class_v1" "default" {
 
   metadata {
     name = var.class_name
-    annotations = {
+    annotations = var.is_default ? {
       "ingressclass.kubernetes.io/is-default-class" = "true"
-    }
+    } : {}
   }
 
   spec {
