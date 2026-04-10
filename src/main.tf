@@ -9,9 +9,9 @@ resource "kubernetes_ingress_class_v1" "default" {
   }
 
   spec {
-    controller = var.auto_mode_enabled ? "eks.amazonaws.com/alb" : "ingress.k8s.aws/alb"
+    controller = var.eks_auto_mode_enabled ? "eks.amazonaws.com/alb" : "ingress.k8s.aws/alb"
     parameters {
-      api_group = var.auto_mode_enabled ? "eks.amazonaws.com" : "elbv2.k8s.aws"
+      api_group = var.eks_auto_mode_enabled ? "eks.amazonaws.com" : "elbv2.k8s.aws"
       kind      = "IngressClassParams"
       name      = var.class_name
     }
@@ -23,7 +23,7 @@ resource "kubernetes_ingress_class_v1" "default" {
 resource "kubernetes_manifest" "alb_controller_class_params" {
   count = module.this.enabled ? 1 : 0
   manifest = {
-    apiVersion = var.auto_mode_enabled ? "eks.amazonaws.com/v1" : "elbv2.k8s.aws/v1beta1"
+    apiVersion = var.eks_auto_mode_enabled ? "eks.amazonaws.com/v1" : "elbv2.k8s.aws/v1beta1"
     kind       = "IngressClassParams"
     metadata = {
       name = var.class_name
