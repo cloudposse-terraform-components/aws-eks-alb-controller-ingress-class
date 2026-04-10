@@ -64,17 +64,9 @@ variable "additional_tags" {
   default     = {}
 }
 
-variable "auto_mode_enabled" {
+variable "eks_auto_mode_enabled" {
   type        = bool
-  description = <<-EOT
-    Enable EKS Auto Mode. When enabled, AWS manages compute (via managed Karpenter),
-    networking (elastic load balancing), and storage (EBS block storage) for the cluster.
-    Requires Kubernetes 1.29+ and AWS provider >= 5.79.0.
-    Cannot be used with `karpenter_iam_role_enabled = true` (Auto Mode includes managed Karpenter).
-    When enabled, the addons `vpc-cni`, `kube-proxy`, `coredns`, and `aws-ebs-csi-driver` are
-    managed by Auto Mode and should be removed from the `addons` variable (or use `auto_mode_upgrade`
-    for brownfield migration).
-    EOT
+  description = "Set to true if the EKS cluster has Auto Mode compute enabled. Changes the API to `eks.amazonaws.com/` for Auto Mode compatibility."
   default     = false
   nullable    = false
 }
