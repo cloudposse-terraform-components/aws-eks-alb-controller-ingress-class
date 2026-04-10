@@ -63,3 +63,18 @@ variable "additional_tags" {
   description = "Additional tags to apply to the ingress load balancer."
   default     = {}
 }
+
+variable "auto_mode_enabled" {
+  type        = bool
+  description = <<-EOT
+    Enable EKS Auto Mode. When enabled, AWS manages compute (via managed Karpenter),
+    networking (elastic load balancing), and storage (EBS block storage) for the cluster.
+    Requires Kubernetes 1.29+ and AWS provider >= 5.79.0.
+    Cannot be used with `karpenter_iam_role_enabled = true` (Auto Mode includes managed Karpenter).
+    When enabled, the addons `vpc-cni`, `kube-proxy`, `coredns`, and `aws-ebs-csi-driver` are
+    managed by Auto Mode and should be removed from the `addons` variable (or use `auto_mode_upgrade`
+    for brownfield migration).
+    EOT
+  default     = false
+  nullable    = false
+}
